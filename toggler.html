@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/toggler.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="toggler">
+        <span class="toggleBall">
+        </span>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dignissimos aliquam ipsum tenetur, iste quis!
+        Veritatis dolore eveniet voluptatibus doloribus, molestias fuga error ab rerum numquam unde quae quam autem
+        eligendi officia nulla, libero minus eius pariatur reprehenderit. Odit quas saepe cumque unde consequatur
+        exercitationem eaque voluptates quos dignissimos. Vero sapiente optio ea quas fugit ducimus placeat
+        consequuntur? Id, velit iusto voluptates natus nihil ipsa? Pariatur saepe, nam in architecto sequi dolore,
+        aspernatur sint quam adipisci aut officia ducimus incidunt modi praesentium, odit natus similique! Eos, esse
+        labore cum incidunt et quis veniam dolore ea eius numquam iure ratione optio natus quam? Debitis nihil, expedita
+        harum ipsa distinctio totam accusantium dolorum ducimus quis commodi? Earum laboriosam suscipit enim praesentium
+        explicabo commodi perferendis perspiciatis sequi consectetur repellat, quibusdam vitae necessitatibus minus
+        cupiditate provident dolorem modi? Ipsum sed consectetur est a consequatur quibusdam sequi illo! Molestiae odio
+        mollitia natus cupiditate, modi rem nostrum, fugiat veniam vero dolore obcaecati perspiciatis facere? Obcaecati
+        minus odit quas ducimus eius quae odio? Dolore doloribus, corrupti voluptates fuga ipsum dicta deserunt voluptas
+        expedita, ratione cum facere explicabo neque itaque qui mollitia, minus totam molestias! Recusandae cum,
+        explicabo expedita dolorem, repellendus eum blanditiis tempore repudiandae, necessitatibus sint quam?</p>
+
+    <h1 id="date">
+    </h1>
+
+    <h1 id="counter">
+    </h1>
+
+    <script>
+        let toggler = document.getElementById('toggler')
+        let body = document.querySelector('body')
+
+        toggler.addEventListener('click', function () {
+            toggler.classList.toggle('active')
+            body.classList.toggle('active')
+
+            if (!body.classList.contains('active')) {
+                return localStorage.setItem('key', 'white')
+            } else {
+                return localStorage.setItem('key', 'active')
+            }
+        })
+
+        let myKey = localStorage.getItem('key')
+
+        if (myKey == "active") {
+            toggler.classList.add('active')
+            body.classList.add('active')
+        }
+        //date
+        let date = document.getElementById('date');
+
+        let myDate = new Date()
+
+        function dateFunction() {
+            let myDate = new Date()
+            date.innerText = myDate.toLocaleTimeString()
+        }
+        setInterval(dateFunction, 1000)
+
+    //counter
+     let counter = document.getElementById('counter')
+     let count = 0;
+
+     function myCount(){
+        counter.textContent = count++
+     }
+     setInterval(myCount,1000)
+
+
+    </script>
+</body>
+
+</html>
